@@ -1,0 +1,51 @@
+.markItUp .markItUpSeparator{
+	margin: 0 2px !important;
+}
+.markItUp .h1 a {
+	background-image:url(./images/h1.png); 
+}
+.markItUp .h2 a {
+	background-image:url(./images/h2.png); 
+}
+.markItUp .h3 a {
+	background-image:url(./images/h3.png); 
+}
+.markItUp .strong a {
+	background-image:url(./images/strong.png); 
+}
+.markItUp .em a {
+	background-image:url(./images/em.png); 
+}
+.markItUp .list a {
+	background-image:url(./images/list.png); 
+}
+.markItUp .list-order a {
+	background-image:url(./images/list-order.png); 
+}
+.markItUp .image a {
+	background-image:url(./images/image.png); 
+}
+.markItUp .link a {
+	background-image:url(./images/link.png); 
+}
+.markItUp .quote a {
+	background-image:url(./images/quote.png); 
+}
+.markItUp .code a {
+	background-image:url(./images/code.png); 
+}
+.markItUp .AA a {
+	background-image:url(./images/AA.png); 
+}
+.markItUp .fullscreen a {
+	background-image:url(./images/fullscreen.png); 
+}
+.markItUp .indentable a {
+	background-image:url(./images/indentable.png); 
+}
+.markItUp .disindentable a {
+	background-image:url(./images/disindentable.png); 
+}
+.markItUp .preview a {
+	background-image:url(./images/preview.png); 
+}

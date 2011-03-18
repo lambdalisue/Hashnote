@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block breadcrumbs %}
+&gt; <a href="{% reverse 'storage_material_list' %}">Storage</a>
+{% if object %}
+&gt; <a href="{{ object.get_absolute_url }}">{{ object|truncateletters:"50" }}</a>
+{% endif %}
+{% endblock %}

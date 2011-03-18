@@ -1,0 +1,65 @@
+{% extends "blogs/base.html" %}
+{% load table_of_contents %}
+{% load comments %}
+
+{% block title %}
+{{ object }}
+{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'blogs-article-detail' %}
+{{ object.stylesheet|safe }}
+{{ object.javascript|safe }}
+{% endblock %}
+
+{% block content %}
+{% with object as article %}
+<article class="article">
+	<h1 class="title"><a href="{{ article.get_absolute_url }}">{{ article }}</a></h1>
+	{% get_comment_count for article as comment_count %}
+	<p class="description">Posted by {{ article.author }} at {{ article.publish_at|date }}
+	{% if article.category %}
+	<br />Categorized as '<a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>'
+	{% endif %}<br />
+	{{ comment_count }} comments are posted to this article
+	</p>
+	<section id="sharebox-top">
+		{% include "components/sharebox.html" %}
+	</section>
+	<section id="tags-top">
+		<h3 class="hide">Tags</h3>
+		<nav>
+			<ul>
+			{% for tag in article.get_tags %}
+				<li class="tag"><a href="{% reverse 'blogs_article_tagged_list' tag %}">{{ tag }}</a></li>
+			{% endfor %}
+			</ul>
+		</nav>
+	</section>
+	<article class="body markdown">
+		{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|toc:"<h2>Table of Contents</h2>" }}
+	</article>
+</article>
+{% if article.body|length > 100 %}
+<hr class="hide">
+{% include "components/sharebox.html" %}
+{% endif %}
+
+<hr class="hide">
+{% render_comment_list for article %}
+{% with article.get_absolute_url as next %}
+{% render_comment_form for article %}
+{% endwith %}
+
+{% endwith %}
+{% endblock %}
+
+{% block controller %}
+{% ifhsp 'blogs.change_article' of object for user %}
+<li id="controller-update-article">
+	<a href="{% reverse 'blogs_article_update' object.pk %}" title="Modify the article">Modify</a>
+</li>
+{% endifhsp %}
+{{ block.super }}
+{% endblock %}

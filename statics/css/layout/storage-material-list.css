@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+article.material{
+	display: block;
+	float: left;
+	width: 172px;
+	height: 172px;
+	margin: 10px;
+	text-align: center;
+}
+article.material p{
+	margin: 0;
+	font-size: 0.9em;
+	text-align: center;
+}
+article.material section.digest a{
+	display: table-cell;
+	width: 172px;
+	height: 129px;
+	border: 1px solid #dedede;
+	margin: 0 0 5px 0;
+	vertical-align: middle;
+}
+article.material section.digest a img{
+	display: block;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+section#material-list:after{
+	display: block;
+	content: "";
+	clear: both;
+}

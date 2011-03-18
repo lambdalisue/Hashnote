@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Houm - Login{% endblock %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+&gt; <a href="{% reverse 'login' %}">Login</a>
+{% endblock %}
+
+{% block content %}
+<section class="first grid12">
+<h1>Login</h1>
+<p class="description">Login to Hashnote</p>
+
+{% if user.is_authenticated %}
+<p>You are already logged in. <a href="{% reverse 'logout' %}">Logout?</a></p>
+{% else %}
+<p>Please input your account name and password.</p>
+<form action="" method="post">{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="Login" /></p>
+	<p><input type="hidden" name="next" value="/" /></p>
+</form>
+{% endif %}
+</section>
+{% endblock %}

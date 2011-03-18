@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hashnote - {% block title %}Index{% endblock %}</title>
+		<!--[if lt IE 9]>
+		<script src="http://ie7-js.googlecode.com/svn/trunk/lib/IE9.js"></script>
+		<![endif]-->
+		{% compressed_css 'default' %}
+		{% compressed_js 'default' %}
+		{% block head %}
+		{% endblock %}
+	</head>
+	<body>
+		<a name="top" id="top"></a>
+		<header>
+			<figure>
+				{% if user.is_authenticated %}
+				<h1 class="authenticated"><a href="/">H<span class="highlight">a</span>shnote</a></h1>
+				{% else %}
+				<h1 class="unauthenticated"><a href="/">H<span class="highlight">a</span>shnote</a></h1>
+				{% endif %}
+				<p class="description">Everything is going back to the simple</p>
+			</figure>
+		</header>
+		<hr class="hide">
+		<nav id="breadcrumbs">
+			<span class="hide">Breadcrumbs:</span>
+			<a href="/">Hashnote</a>
+			{% block breadcrumbs %}
+			{% endblock %}
+		</nav>
+		<hr class="hide">
+		<section id="content">
+			{% block content %}
+			{% endblock %}
+		</section>
+		<hr class="hide">
+		<nav id="controller">
+			<ul>
+				{% block controller %}
+				{% endblock %}
+				<li id="controller-top"><a href="#top" title="Top of the page">Top</a></li>
+				<li id="controller-bottom"><a href="#bottom" title="Bottom of the page">Bottom</a></li>
+				{% if user.is_authenticated %}
+				<li id="controller-stroage"><a href="{% reverse 'storage_material_list' %}" title="Storage">Storage</a></li>
+				<li id="controller-admin"><a href="{% reverse 'admin:index' %}" title="Visit Admin site" target="_blank">Preference</a></li>
+				<li id="controller-logout"><a href="{% reverse 'logout' %}" title="Logout">Logout</a></li>
+				{% else %}
+				<li id="controller-login"><a href="{% reverse 'login' %}" title="Login">Login</a></li>
+				{% endif %}
+			</ul>
+		</nav>
+		<hr class="hide">
+		<footer>
+			<address>Copyright &copy; 2009-{% now "Y" %} Alisue allright reserved.</address>
+		</footer>
+		<a name="bottom" id="bottom"></a>
+	</body>
+</html>

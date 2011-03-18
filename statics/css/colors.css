@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+header h1.authenticated .highlight{
+	color: #cc6666;
+}
+header h1.unauthenticated .highlight{
+	color: #9a9a9a;
+}
+
+div.CodeMirror-wrapping{
+	border: 1px solid #efefef !important;
+}
+div.CodeMirror-wrapping:focus{
+	border: 1px solid #dedede !important;
+}

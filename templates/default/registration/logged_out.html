@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Logout{% endblock %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+&gt; <a href="{% reverse 'logout' %}">Logout</a>
+{% endblock %}
+
+{% block content %}
+<section class="grid12">
+<h1>Logged out</h1>
+<p class="description">You are logged out</p>
+
+<p>Do you want to <a href="{% url django.contrib.auth.views.login %}">Login?</a></p>
+</section>
+{% endblock %}

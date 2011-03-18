@@ -1,0 +1,54 @@
+Introduction
+========================================================
+Hashnote is a blog framework for ME. Still developping.
+If you like it you can use it but you can not get any support.
+
+
+Required packages
+========================================================
++ django>1.2
++ markdown
++ Pygments
++ PyYAML
++ Akismet
++ django-codemirror-widget
++ django-markitup-widget
++ django-modify-history
++ django-compressed
++ django-pagination
++ django-reversetag
+
+You can install the package above with `utils/package.sh` using `pip` installer.
+
+
+Directories
+=======================================================
+
+	root
+	+- fixtures: fixture directory for debugging
+	+- src: actual python source code directory
+	|  +- Hashnote: Hashnote dependet src
+	|  |  +- ...
+	|  +- libs: Library directory
+	|  |  +- ...
+	+- statics: statics file directory
+	|  +- css: StyleSheets
+	|  |  +- components
+	|  |  +- compressed: django-compressed will compress CSS to this directory
+    |  |  +- image: images used in css
+	|  |  +- layout: layout css for each view
+	|  +- javascript: JavaScript
+	|  |  +- codemirror: CodeMirror
+	|  |  +- components
+	|  |  +- compressed: django-compressed will compress JavaScript to this directory
+	|  |  +- markitup: markItUp!
+	|  |  +- plugins
+	|  +- image: Images
+	|  +- storage: upload directory used by `storage` app
+	+- templates: tempalte directory
+	   +- ...
+	+- utils: utilities for develop
+
+License
+=======================================================
+Icon used on the html is **Reflection Icon Set by Webdesigner Depot** downloaded at `http://www.webdesignerdepot.com/`

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block breadcrumbs %}
+&gt; <a href="{% reverse 'storage_material_list' %}">Storage</a>
+{% if object %}
+&gt; <a href="{{ object.get_absolute_url }}">{{ object|truncateletters:"50" }}</a>
+{% endif %}
+{% endblock %}
+
+{% block controller %}
+{% ifhsp 'storage.add_material' for user %}
+<li id="controller-create-material">
+	<a href="{% reverse 'storage_material_create' %}" title="Upload new material">Upload new material</a>
+</li>
+{% endifhsp %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{{ object }}
+{% endblock %}
+
+{% block head %}
+{% compressed_css 'storage-material-detail' %}
+{% endblock %}
+
+{% block content %}
+<h1>{{ object.title|truncateletters:20 }}</h1>
+<section id="thumbnail">
+{{ object.get_thumbnail_display }}
+</section>
+{% if user.is_authenticated or object.is_downloadable %}
+<p class="download">{{ object.get_download_display }}</p>
+{% endif %}
+<table>
+	<tr>
+		<th>{% trans 'ID' %}</th>
+		<td>{{ object.pk }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Title' %}</th>
+		<td>{{ object.title }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Is public' %}</th>
+		<td>{{ object.is_public }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Is downloadable' %}</th>
+		<td>{{ object.is_downloadable }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Uploaded at' %}</th>
+		<td>{{ object.created_at|date }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Last modified' %}</th>
+		<td>{{ object.updated_at|date }}</td>
+	</tr>
+	<tr>
+		<th>{% trans 'Description' %}</th>
+		<td>{{ object.description|default:"-" }}</td>
+	</tr>
+</table>
+{% endblock %}
+
+{% block controller %}
+{% if perms.storage.change_material %}
+<li id="controller-update-material">
+	<a href="{% reverse 'storage_material_update' object.pk %}" title="Modify the material">Modify</a>
+</li>
+{% endif %}
+{% if perms.storage.delete_material %}
+<li id="controller-delete-material">
+	<a href="{% reverse 'storage_material_delete' object.pk %}" title="Delete the material">Delete</a>
+</li>
+{% endif %}
+{{ block.super }}
+{% endblock %}

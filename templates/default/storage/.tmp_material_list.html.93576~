@@ -1,0 +1,29 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Material list' %}
+{% endblock %}
+
+{% block content %}
+<section>
+<h1>{% trans 'Material list' %}</h1>
+<p class="description">
+	{% trans 'The list of material' %}
+</p>
+<form action="{% reverse 'storage_material_create' %}?next={% reverse 'storage_material_list' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="{% trans 'Upload' %}" /></p>
+</form>
+<hr />
+<section id="material-list">
+	{% for material in object_list %}
+	<article class="material">
+		{{ material }}
+	</article>
+	{% empty %}
+	<p>No material found</p>
+	{% endfor %}
+</section>
+</section>
+{% endblock %}

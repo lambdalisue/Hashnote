@@ -1,0 +1,26 @@
+<section id="comments">
+	{% for comment in comment_list %}
+	<article class="comment" id="c{{ comment.id }}">
+		<p class="name">
+			{% if comment.url %}
+			<a href="{{ comment.url }}" target="_blank">{{ comment.name }}</a>
+			{% else %}
+			{{ comment.name }}
+			{% endif %}
+		</p>
+		<time datetime="{{ comment.submit_date }}">
+			{{ comment.submit_date|date }}
+		</time>
+		{% if user.is_superuser or user == comment.content_object.author %}
+		<nav class="handler">
+			<ul>
+				<li class="delete"><a href="{% reverse 'comments-delete' comment.pk %}" title="Delete this comment post">Delete</a></li>
+			</ul>
+		</nav>
+		{% endif %}
+		<section class="body markdown tiny">
+			{{ comment.comment|markdown:"extra,codehilite" }}
+		</section>
+	</article>
+	{% endfor %}
+</section>

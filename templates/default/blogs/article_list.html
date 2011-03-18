@@ -1,0 +1,44 @@
+{% extends "blogs/base.html" %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'blogs-article-list' %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+<p class="description">Article list which Categorized as '<a href="{{ category.get_absolute_url }}">{{ category }}</a>'</p>
+{% elif tag %}
+<p class="description">Article list which Tagged as '<a href="{% reverse 'blogs_article_tagged_list' tag %}">{{ tag }}</a>'</p>
+{% endif %}
+{% if object_list %}
+{% autopaginate object_list 5 %}
+{% for article in object_list %}
+<article class="article">
+	<aside>
+		<time datetime="{{ article.publish_at }}">
+			<span class="day">{{ article.publish_at.day }}</span>
+			<span class="month">{{ article.publish_at|date:"M" }}</span>
+			<span class="year">{{ article.publish_at.year }}</span>
+		</time>
+	</aside>
+	<section class="content">
+		<h1><a href="{{ article.get_absolute_url }}">{{ article }}</a></h1>
+		<p class="description">Posted by {{ article.author }} at {{ article.publish_at|date }}
+		{% if article.category %}
+		<br />Categorized as '<a href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>'
+		{% endif %}
+		</p>
+		<article class="body markdown">
+			{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|truncateletters_html:"400" }}
+		</article>
+	</section>
+</article>
+{% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+
+{% paginate %}
+{% else %}
+<p>No article is posted yet</p>
+{% endif %}
+{% endblock %}

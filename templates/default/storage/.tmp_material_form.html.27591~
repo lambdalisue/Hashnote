@@ -1,0 +1,48 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% if object %}
+Updating {{ object }}
+{% else %}
+Upload new article
+{% endif %}
+{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'storage-material-form' %}
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+{% if object %}
+&gt; <a href="{% reverse 'storage_material_update' object.pk %}">{% trans 'Modify' %}</a>
+{% else %}
+&gt; <a href="{% reverse 'storage_material_create' %}">{% trans 'Upload' %}</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section>
+<h1>
+	{% if object %}
+	{% trans 'Modify material' %}
+	{% else %}
+	{% trans 'Upload new material' %}
+	{% endif %}
+</h1>
+<p class="description">
+	{% if object %}
+	{% trans 'Modify' %} '{{ object }}'
+	{% else %}
+	{% trans 'Uploading new file' %}
+	{% endif %}
+</p>
+<form action="" method="post">{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="{% trans 'Upload' %}" /></p>
+</form>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans 'Material list' %}
+{% endblock %}
+
+{% block content %}
+<section>
+<h1>{% trans 'Material list' %}</h1>
+<p class="description">
+	{% trans 'The list of material' %}
+</p>
+<section id="material-list">
+	{% for material in object_list %}
+	<article class="material">
+		
+	</article>
+	{% empty %}
+	<p>No material found</p>
+	{% endfor %}
+</section>
+</section>
+{% endblock %}

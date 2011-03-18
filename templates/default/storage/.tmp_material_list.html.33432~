@@ -1,0 +1,43 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block title %}
+{% trans 'Material list' %}
+{% endblock %}
+
+{% block head %}
+{% compressed_css 'storage-material-list' %}
+{{ form.media }}
+{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Material list' %}</h1>
+<p class="description">
+	{% trans 'The list of material' %}
+</p>
+<form action="{% reverse 'storage_material_create' %}?next={% reverse 'storage_material_list' %}" method="post" enctype="multipart/form-data" class="short">{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="{% trans 'Upload' %}" /></p>
+</form>
+<hr />
+<section id="material-list">
+	{% autopaginate object_list %}
+	{% for material in object_list %}
+	<article class="material">
+		<section class="digest">
+			<a href="{{ material.get_absolute_url }}"><img src="{{ material.get_digest_url }}" /></a>
+		</section>
+		<p class="title">{{ material.title|truncateletters:10 }}</p>
+		<p>
+			<span class="preview"><a href="{{ material.get_preview_url }}">preview</a></span> |
+			<span class="download"><a href="{{ material.get_download_url }}">download</a></span>
+		</p>
+	</article>
+	{% empty %}
+	<p>No material found</p>
+	{% endfor %}
+</section>
+
+{% paginate %}
+{% endblock %}

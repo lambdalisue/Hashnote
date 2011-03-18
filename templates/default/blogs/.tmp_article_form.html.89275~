@@ -1,0 +1,44 @@
+{% extends "blogs/base.html" %}
+
+{% block title %}
+{% if object %}
+Updating {{ object }}
+{% else %}
+Create new article
+{% endif %}
+{% endblock %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'blogs-article-form' %}
+{% compressed_js 'blogs-article-form' %}
+{{ form.media }}
+{% endblock %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+{% if object %}
+&gt; <a href="{% reverse 'blogs_article_update' object.pk %}">Modify</a>
+{% else %}
+&gt; <a href="{% reverse 'blogs_article_create' %}">Add</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>
+	{% if object %}
+	Modify article
+	{% else %}
+	Add new article
+	{% endif %}
+</h1>
+<p class="description">
+	{% if object %}
+	Modify '{{ object }}'
+	{% endif %}
+</p>
+<form action="" method="post" class="stylized">{% csrf_token %}
+	{{ form.as_p }}
+	<p><input type="submit" value="Submit" /></p>
+</form>
+{% endblock %}

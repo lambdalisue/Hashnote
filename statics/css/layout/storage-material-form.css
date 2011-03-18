@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+label[for=id_title],
+label[for=id_is_public],
+label[for=id_is_downloadable],
+form.short input#id_file{
+	float: left;
+	margin-right: 20px;
+}
+label[for=id_title],
+label[for=id_is_public],
+label[for=id_is_downloadable]{
+	float: left;
+	display: block;
+	width: 16px; height: 16px;
+	margin: 4px 2px 0 0;
+	text-indent: -10000px;
+	vertical-align: middle;
+}
+label[for=id_title]{
+	background: url(/css/image/Title.png) no-repeat;
+}
+label[for=id_is_public]{
+	background: url(/css/image/Bulb.png) no-repeat;
+}
+label[for=id_is_downloadable]{
+	background: url(/css/image/Download.png) no-repeat;
+}
+input#id_title{
+	width: 580px;
+}
+label[for=id_file],
+label[for=id_description]{
+	display: none;
+}

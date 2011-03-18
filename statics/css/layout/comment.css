@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+section#comments{
+	width: 820px;
+	margin: 0 0 0 120px;
+	padding: 0 0 0 20px;
+	border-left: 1px dotted #dedede;
+}
+article.comment{
+	position: relative;
+	border-bottom: 1px solid #dedede;
+	padding: 20px 0;
+}
+article.comment p.name{
+	width: 120px;
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+}
+article.comment time{
+	width: 120px;
+	color: #ababab;
+}
+article.comment nav.handler{
+	display: block;
+	float: left;
+}
+article.comment nav.handler ul li a{
+	display: block;
+	width: 16px; height: 16px;
+	text-indent: -10000px;
+	outline: none;
+}
+article.comment nav.handler ul li a:hover{
+	background-position: 0 -16px !important;
+}
+article.comment nav.handler ul li.delete a{
+	background: url(/css/image/Delete.png) no-repeat;
+}
+article.comment section.body{
+	margin: -37px 0 0 120px;
+	padding: 0 0 0 10px;
+	border-left: 1px dotted #dedede;
+}
+article.comment section.body *:last-child{
+	margin-bottom: 0;
+}
+article.comment:last-child{
+	border-bottom: none;
+}
+form.comment{
+	width: 820px;
+	margin: 0 0 0 120px;
+	padding: 0 0 0 20px;
+	border-left: 1px dotted #dedede;
+}
+label[for=id_name],
+label[for=id_email],
+label[for=id_url]{
+	display: block;
+	width: 16px;
+	height: 16px;
+	margin: 4px 5px 0 20px;
+	background-position: 0 50%;
+	text-indent: -10000px;
+	vertical-align: middle;
+}
+label[for=id_name]{
+	background: url(/css/image/User.png) no-repeat;
+	margin-left: 0;
+}
+label[for=id_email]{
+	background: url(/css/image/Message.png) no-repeat;
+}
+label[for=id_url]{
+	background: url(/css/image/Home.png) no-repeat;
+	margin-left: 0;
+}
+label[for=id_name],
+label[for=id_email],
+label[for=id_url],
+input#id_name{
+	float: left;
+}
+input#id_email{
+	width: 300px;
+	clear: both;
+}
+input#id_url{
+	width: 500px;
+	clear: both;
+}
+label[for=id_comment]{
+	display: none;
+}
+textarea#id_comment{
+	width: 818px;
+}

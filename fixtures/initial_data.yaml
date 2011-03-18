@@ -1,0 +1,23 @@
+#
+# Site
+# -------------------------------------------------------------------------------
+- model: sites.site
+  pk: 1
+  fields:
+    domain: localhost:5000
+    name: Development Python Server
+- model: sites.site
+  pk: 2
+  fields:
+    domain: dev.hashnote.tk
+    name: Development Apache Server
+- model: sites.site
+  pk: 3
+  fields:
+    domain: www.hashnote.tk
+    name: Deployment Apache Server
+- model: sites.site
+  pk: 4
+  fields:
+    domain: m.hashnote.tk
+    name: Deployment Apache Server for Mobile

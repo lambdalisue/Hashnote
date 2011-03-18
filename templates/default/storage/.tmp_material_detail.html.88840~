@@ -1,0 +1,8 @@
+{% extends "storage/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{{ object }}
+{% endblock %}
+
+{% block content %}
