@@ -2,3 +2,5 @@
 *.swp
 *.db
 statics/storage/*
+statics/css/compressed/*
+statics/javascript/compressed/*
