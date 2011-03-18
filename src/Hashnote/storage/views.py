@@ -133,7 +133,7 @@ def update_material(request, object_id):
     kwargs = {
         'form_class': MaterialDescriptionUpdateForm,
     }
-    return create_update.create_object(request, object_id=object_id, **kwargs)
+    return create_update.update_object(request, object_id=object_id, **kwargs)
     
 @permission_required('storage.delete_material')
 def delete_material(request, object_id):

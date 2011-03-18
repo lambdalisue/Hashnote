@@ -99,4 +99,4 @@ def delete_article(request, object_id):
         'model': Article,
         'post_delete_redirect': reverse('blogs_article_list'),
     }
-    return create_update.delete_object(request, **kwargs)
+    return create_update.delete_object(request, object_id=object_id, **kwargs)

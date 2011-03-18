@@ -42,7 +42,8 @@ Upload new article
 </p>
 <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
 	{{ form.as_p }}
-	<p><input type="submit" value="{% trans 'Upload' %}" /></p>
+	
+	<p><input type="submit" value={% if object %}"{% trans "Update" %}"{% else %}"{% trans 'Upload' %}"{% endif %} /></p>
 </form>
 </section>
 {% endblock %}
