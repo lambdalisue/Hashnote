@@ -96,7 +96,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
+    #'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,7 +106,7 @@ MIDDLEWARE_CLASSES = (
     'hashnotelib.middleware.http.Http403Middleware',
     'hashnotelib.middleware.threadlocals.ThreadLocalsMiddleware',
     'hashnotelib.middleware.exception.UserBasedExceptionMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'Hashnote.urls'

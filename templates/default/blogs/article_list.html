@@ -31,7 +31,7 @@
 		{% endif %}
 		</p>
 		<article class="body markdown">
-			{{ article.body|parse_storage_tags|markdown:"extra,codehilite(force_linenos=True)"|truncateletters_html:"400" }}
+			{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|parse_storage_tags|truncateletters_html:"400" }}
 		</article>
 	</section>
 </article>
