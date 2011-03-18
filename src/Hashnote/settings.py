@@ -57,11 +57,11 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
-USE_L10N = False
+USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
@@ -111,7 +111,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'Hashnote.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(ROOT, 'templates/www.hashnote.tk'),
     os.path.join(ROOT, 'templates/default'),
 )
 
@@ -140,11 +139,6 @@ INSTALLED_APPS = (
 FIXTURE_DIRS = (
     os.path.join(ROOT, 'fixtures'),
 )
-
-if DEBUG:
-    CACHE_BACKEND = 'locmem:///'
-else:
-    CACHE_BACKEND = 'memcached://127.0.0.1:11211'
 
 # django-compress
 #------------------------------------------------------
