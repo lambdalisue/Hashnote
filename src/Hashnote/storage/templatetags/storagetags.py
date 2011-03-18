@@ -87,4 +87,4 @@ def parse_storage_tags_html(html):
             text = parse_storage_tags(textNode)
             textNode.replaceWith(text)
             
-        return str(soup)
+        return mark_safe(soup)
