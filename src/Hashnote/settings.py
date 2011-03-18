@@ -6,7 +6,7 @@
 #------------------------------------------------------------------------------------------
 import sys
 import os.path
-ROOT = os.path.join(os.path.dirname(__file__), '../../../')
+ROOT = os.path.join(os.path.dirname(__file__), '../../')
 PYTHON_PATHS = [
     os.path.join(ROOT, 'src/libs'),
 ]
@@ -138,7 +138,7 @@ INSTALLED_APPS = (
 )
 
 FIXTURE_DIRS = (
-    os.path.join(os.path.dirname(__file__), '../../fixtures'),
+    os.path.join(ROOT, 'fixtures'),
 )
 
 if DEBUG:
