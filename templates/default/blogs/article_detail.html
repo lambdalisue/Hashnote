@@ -1,6 +1,7 @@
 {% extends "blogs/base.html" %}
 {% load table_of_contents %}
 {% load comments %}
+{% load storagetags %}
 
 {% block title %}
 {{ object }}
@@ -35,7 +36,7 @@
 		</nav>
 	</section>
 	<article class="body markdown">
-		{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|toc:"<h2>Table of Contents</h2>" }}
+		{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|toc:"<h2>Table of Contents</h2>"|parse_storage_tags_html }}
 	</article>
 </article>
 {% if article.body|length > 100 %}
