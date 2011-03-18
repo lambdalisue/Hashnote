@@ -1,0 +1,17 @@
+{% extends "blogs/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Confirm" %}
+{% endblock %}
+
+{% block content %}
+<h1>{% trans "Confirm" %}</h1>
+<p class="description">Confirm of deleting "{{ object.title|truncateletters:20 }}"</p>
+<p>{% trans "Are you sure to remove this article?" %}
+{% trans "Comments on this article will automatically removed as well." %}</p>
+
+<form action="" method="post">{% csrf_token %}
+	<p><input type="submit" value="Yes" /> or <a href="javascript:void();" onclick="history.back();">cancel</a></p>
+</form>
+{% endblock %}
