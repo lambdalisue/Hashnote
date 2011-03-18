@@ -12,8 +12,9 @@
 from django import template
 from django.conf import settings
 from django.utils.safestring import mark_safe
-from markupfield.fields import Markup
+
 from ..models import Material
+
 import re
 
 register = template.Library()
@@ -27,8 +28,6 @@ class GetMaterialsFor(template.Node):
     
     def render(self, context):
         value = template.resolve_variable(self.value_vname, context)
-        if isinstance(value, Markup):
-            value = value.raw
         pk_list = []
         for m in MATERIAL_PATTERN.finditer(value):
             pk_list.append(m.group('object_id'))
