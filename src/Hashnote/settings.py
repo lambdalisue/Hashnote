@@ -105,6 +105,7 @@ MIDDLEWARE_CLASSES = (
     'pagination.middleware.PaginationMiddleware',
     'hashnotelib.middleware.http.Http403Middleware',
     'hashnotelib.middleware.threadlocals.ThreadLocalsMiddleware',
+    'hashnotelib.middleware.exception.UserBasedExceptionMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
