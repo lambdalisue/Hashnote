@@ -36,7 +36,7 @@
 		</nav>
 	</section>
 	<article class="body markdown">
-		{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|toc:"<h2>Table of Contents</h2>"|parse_storage_tags_html }}
+		{{ article.body|parse_storage_tags|markdown:"extra,codehilite(force_linenos=True)"|toc:"<h2>Table of Contents</h2>" }}
 	</article>
 </article>
 {% if article.body|length > 100 %}
