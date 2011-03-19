@@ -12,7 +12,7 @@ from django.views.generic import create_update
 from django.views.decorators.cache import never_cache
 from django.contrib.auth.decorators import permission_required
 
-from hashnotelib.http import Http403
+from qwert.http import Http403
 from models import Material
 from forms import MaterialForm, MaterialDescriptionForm, MaterialDescriptionUpdateForm
 import utils

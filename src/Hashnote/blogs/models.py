@@ -7,9 +7,6 @@ from django.db import models
 from django.utils.text import ugettext_lazy as _
 
 from tagging.fields import TagField
-from tagging.models import Tag
-
-from hashnotelib.middleware.threadlocals import get_current_user
 
 from datetime import date
 

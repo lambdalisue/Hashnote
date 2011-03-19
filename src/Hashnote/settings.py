@@ -103,9 +103,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    'hashnotelib.middleware.http.Http403Middleware',
-    'hashnotelib.middleware.threadlocals.ThreadLocalsMiddleware',
-    'hashnotelib.middleware.exception.UserBasedExceptionMiddleware',
+    'qwert.middleware.http.Http403Middleware',
+    'qwert.middleware.threadlocals.ThreadLocalsMiddleware',
+    'qwert.middleware.exception.UserBasedExceptionMiddleware',
     #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
     # site-package
+    'qwert',
     'compress',
     'pagination',
     'reversetag',
