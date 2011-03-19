@@ -1,13 +1,12 @@
 {% extends "storage/base.html" %}
 {% load i18n %}
-{% load pagination_tags %}
 
 {% block title %}
 {% trans 'Material list' %}
 {% endblock %}
 
 {% block head %}
-{% compressed_css 'storage-material-list' %}
+{% compressed_css 'full-storage-material-list' %}
 {{ form.media }}
 {% endblock %}
 
@@ -40,9 +39,8 @@
 		</p>
 	</article>
 	{% empty %}
-	<p>No material found</p>
+	<p>{% trans 'No material found' %}</p>
 	{% endfor %}
 </section>
-
 {% paginate %}
 {% endblock %}

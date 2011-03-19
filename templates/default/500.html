@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-<h1>500 - Internal Server Error</h1>
+<h1>Internal Server Error</h1>
+<span class="subscript">Error: 500 - Internal Server Error</span>
+{% blocktrans %}
+Some critical error has occur on the server. Please contact to a web administrator.
+{% endblocktrans %}
 {% endblock %}

@@ -1,35 +1,23 @@
 {% extends "base.html" %}
-
-{% block head %}
-{% compressed_css 'blogs' %}
-{% endblock %}
+{% load i18n %}
 
 {% block breadcrumbs %}
 {% if object %}
-{% if object.is_draft %}
+	{% if object.is_draft %}
 &gt; <a href="{{ object.get_absolute_url }}">{{ object|truncateletters:"50" }}</a>
-{% else %}
-{% comment %}
+	{% else %}
 &gt; <a href="{% reverse 'blogs_article_archive_year' object.publish_at.year %}">{{ object.publish_at.year }}</a>
 &gt; <a href="{% reverse 'blogs_article_archive_month' object.publish_at.year,object.publish_at.month %}">{{ object.publish_at|date:"M" }}</a>
 &gt; <a href="{% reverse 'blogs_article_archive_day' object.publish_at.year,object.publish_at.month,object.publish_at.day %}">{{ object.publish_at.day }}</a>
-{% endcomment %}
-&gt; {{ object.publish_at.year }}
-&gt; {{ object.publish_at|date:"M" }}
-&gt; {{ object.publish_at.day }}
 &gt; <a href="{{ object.get_absolute_url }}">{{ object|truncateletters:"50" }}</a>
-{% endif %}
-{% elif category %}
-&gt; <a href="{{ category.get_absolute_url }}">Cat. {{ category }}</a>
-{% elif tag %}
-&gt; <a href="{% reverse 'blogs_article_tagged_list' tag %}">Tag. {{ tag }}</a>
+	{% endif %}
 {% endif %}
 {% endblock %}
 
 {% block controller %}
 {% if perms.blogs.add_article %}
 <li id="controller-create-article">
-	<a href="{% reverse 'blogs_article_create' %}" title="Create new article">Create new article</a>
+	<a href="{% reverse 'blogs_article_create' %}" title="{% trans 'Create new article' %}">{% trans 'Create new article' %}</a>
 </li>
 {% endif %}
 {% endblock %}

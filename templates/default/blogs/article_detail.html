@@ -1,15 +1,15 @@
 {% extends "blogs/base.html" %}
+{% load i18n %}
 {% load table_of_contents %}
 {% load comments %}
-{% load storagetags %}
+{% load tagging_tags %}
 
 {% block title %}
 {{ object }}
 {% endblock %}
 
 {% block head %}
-{{ block.super }}
-{% compressed_css 'blogs-article-detail' %}
+{% compressed_css 'full-blogs-article-detail' %}
 {{ object.stylesheet|safe }}
 {{ object.javascript|safe }}
 {% endblock %}
@@ -19,9 +19,8 @@
 <article class="article">
 	<h1 class="title"><a href="{{ article.get_absolute_url }}">{{ article }}</a></h1>
 	{% get_comment_count for article as comment_count %}
-	<p class="description">Posted by {{ article.author }} at {{ article.publish_at|date }}<br />
-	{{ comment_count }} comments are posted to this article
-	</p>
+	<span class="subscript">{% blocktrans with article.publish_at|date as publish_at %}Posted at {{ publish_at }}<br />
+	{{ comment_count }} comments are posted to this article{% endblocktrans %}</span>
 	<section id="sharebox-top">
 		{% include "components/sharebox.html" %}
 	</section>
@@ -29,14 +28,15 @@
 		<h3 class="hide">Tags</h3>
 		<nav>
 			<ul>
-			{% for tag in article.get_tags %}
+			{% tags_for_object article as article_tags %}
+			{% for tag in article_tags %}
 				<li class="tag"><a href="{% reverse 'blogs_article_tagged_list' tag %}">{{ tag }}</a></li>
 			{% endfor %}
 			</ul>
 		</nav>
 	</section>
 	<article class="body markdown">
-		{{ article.body|markdown:"extra,codehilite(force_linenos=True)"|parse_storage_tags|toc:"<h2>Table of Contents</h2>" }}
+		{{ article.body|parseall|toc:"<h2>Table of Contents</h2>" }}
 	</article>
 </article>
 {% if article.body|length > 100 %}

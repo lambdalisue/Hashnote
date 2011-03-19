@@ -19,6 +19,7 @@ Required packages
 + django-compressed
 + django-pagination
 + django-reversetag
++ django-tagging
 
 You can install the package above with `utils/package.sh` using `pip` installer.
 

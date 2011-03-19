@@ -11,6 +11,6 @@
 <p>{% trans "Are you sure to remove this material?" %}</p>
 
 <form action="" method="post">{% csrf_token %}
-	<p><input type="submit" value="Yes" /> or <a href="javascript:void();" onclick="history.back();">cancel</a></p>
+	<p><input type="submit" value="{% trans 'Yes' %}" /> or <a href="javascript:void();" onclick="history.back();">{% trans 'cancel' %}</a></p>
 </form>
 {% endblock %}

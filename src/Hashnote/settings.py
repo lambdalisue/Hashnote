@@ -171,13 +171,13 @@ DEFAULT_FROM_EMAIL = DEFAULT_EMAIL
 
 # MarkItUpTextarea
 #------------------------------------------------------------------------------
-MARKITUP_PATH = r'javascript/markitup'
+MARKITUP_PATH = r'javascript/full/plugins/markitup'
 MARKITUP_DEFAULT_SET = 'markdown'
 MARKITUP_DEFAULT_SKIN = 'simple'
 
 # CodeMirrorTextarea
 #------------------------------------------------------------------------------
-CODEMIRROR_PATH = r'javascript/codemirror/js'
+CODEMIRROR_PATH = r'javascript/full/plugins/codemirror/js'
 
 # Akismet
 #------------------------------------------------------------------------------

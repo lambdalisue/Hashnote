@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block head %}
-{% compressed_css 'storage-material-detail' %}
+{% compressed_css 'full-storage-material-detail' %}
 {% endblock %}
 
 {% block content %}
@@ -52,12 +52,12 @@
 {% block controller %}
 {% if perms.storage.change_material %}
 <li id="controller-update-material">
-	<a href="{% reverse 'storage_material_update' object.pk %}" title="Modify the material">Modify</a>
+	<a href="{% reverse 'storage_material_update' object.pk %}" title="{% trans 'Modify the material' %}">{% trans 'Modify' %}</a>
 </li>
 {% endif %}
 {% if perms.storage.delete_material %}
 <li id="controller-delete-material">
-	<a href="{% reverse 'storage_material_delete' object.pk %}" title="Delete the material">Delete</a>
+	<a href="{% reverse 'storage_material_delete' object.pk %}" title="{% trans 'Delete the material' %}">{% trans 'Delete' %}</a>
 </li>
 {% endif %}
 {{ block.super }}

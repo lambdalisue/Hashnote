@@ -67,8 +67,8 @@ def article_detail(request, year, month, day, object_id):
         'month_format': '%m',
     }
     return date_based.object_detail(request, year=year, month=month, day=day, object_id=object_id, **kwargs)
-def article_detail_raw(request, author, year, month, day, object_id):
-    qs = Article.objects.published(author)
+def article_detail_raw(request, year, month, day, object_id):
+    qs = Article.objects.published()
     kwargs = {
         'publish_at__year': year,
         'publish_at__month': month,

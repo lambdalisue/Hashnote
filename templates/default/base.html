@@ -8,6 +8,8 @@
 		<![endif]-->
 		{% compressed_css 'default' %}
 		{% compressed_js 'default' %}
+		{% compressed_css 'full-default' %}
+		{% compressed_js 'full-default' %}
 		{% block head %}
 		{% endblock %}
 	</head>
@@ -15,12 +17,8 @@
 		<a name="top" id="top"></a>
 		<header>
 			<figure>
-				{% if user.is_authenticated %}
-				<h1 class="authenticated"><a href="/">H<span class="highlight">a</span>shnote</a></h1>
-				{% else %}
-				<h1 class="unauthenticated"><a href="/">H<span class="highlight">a</span>shnote</a></h1>
-				{% endif %}
-				<p class="description">Everything is going back to the simple</p>
+				<h1><a href="/">Hashnote</a></h1>
+				<span class="subscript">Everything is going back to the simple</span>
 			</figure>
 		</header>
 		<hr class="hide">

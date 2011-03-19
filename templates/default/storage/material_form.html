@@ -11,7 +11,7 @@ Upload new article
 
 {% block head %}
 {{ block.super }}
-{% compressed_css 'storage-material-form' %}
+{% compressed_css 'full-storage-material-form' %}
 {{ form.media }}
 {% endblock %}
 
@@ -42,7 +42,6 @@ Upload new article
 </p>
 <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
 	{{ form.as_p }}
-	
 	<p><input type="submit" value={% if object %}"{% trans "Update" %}"{% else %}"{% trans 'Upload' %}"{% endif %} /></p>
 </form>
 </section>

@@ -7,7 +7,6 @@ COMPRESS_CSS = {
     'default': {
         'source_filenames': (
             r'css/components/html5reset.css',
-            #r'css/components/grid.css',
             r'css/components/typography.css',
             r'css/components/hlist.css',
             r'css/components/markdown.css',
