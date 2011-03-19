@@ -1,6 +1,6 @@
 *.py[co]
 *.swp
 *.db
-statics/storage/*
-statics/css/compressed/*
-statics/javascript/compressed/*
+statics/storage/**
+statics/css/compressed/**
+statics/javascript/compressed/**
