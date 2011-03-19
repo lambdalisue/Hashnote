@@ -1,0 +1,228 @@
+@charset "utf-8";
+
+body{
+	font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	font-size: 62.5%;
+	color: #666666;
+}
+
+/* Inline ------------------------------ */
+a{
+	color: #6666aa;
+}
+a:hover{
+	color: #4444dd;
+}
+sup, sub{
+	font-size: 0.7em;
+	line-height: 100%;
+}
+sup{
+	vertical-align: text-top;
+}
+sub{
+	vertical-align: text-bottom;
+}
+
+/* Block ------------------------------- */
+p{
+	text-indent: 0.5em;
+	font-size: 1.4em;
+	line-height: 1.4em;
+	margin: 1.25em 0;
+	text-align: justify;
+}
+blockquote {
+	font-size: 1.2em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin: 1.5em 0 1.5em 0;
+	padding: 1em 1.5em;
+	text-indent: 0;
+	font-style: italic;
+	border-top: solid 1px #dedede;
+	border-bottom: solid 1px #dedede;
+	color: #9a9a9a;
+}
+blockquote[title]:before{
+	display: block;
+	content: attr(title) ":";
+	text-align: left;
+	font-style: normal;
+	text-transform: uppercase;
+}
+blockquote[cite]:after{
+	display: block;
+	content: "URI: " attr(cite);
+	text-align: right;
+	font-style: normal;
+}
+/* Header ------------------------------------------- */
+h1 a,h2 a,h3 a,
+h4 a,h5 a,h6 a,
+h1 a:hover,h2 a:hover,h3 a:hover,
+h4 a:hover,h5 a:hover,h6 a:hover{
+	color: inherit;
+	text-decoration: none;
+}
+h1{
+	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+	font-size: 4.2em;
+	letter-spacing: 0.2em;
+	line-height: 1.1em;
+	margin: 5.0em 0 1.0em 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+h1:first-child{
+	margin-top: 0;
+}
+h1 + span.subscript{
+	display: block;
+	font-family: "Lucida Grande", Tahoma;
+	font-size: 1.6em;
+	font-weight: lighter;
+	text-transform: uppercase;
+	color: #9a9a9a;
+	margin: -2.5em 0 2.0em 0;
+	text-align: center;
+	letter-spacing: 0.3em;
+	line-height: 1.2em;
+}
+h2{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 2.4em;
+	margin-top: 5.0em;
+	margin-bottom: 1.0em;
+	font-weight: bold;
+	color: #222;
+}
+h3{
+	font-family: Georgia,serif;
+	font-size: 2.0em;
+	margin-bottom: 1.0em;
+	color:#4E443C;
+	text-transform: none;
+	font-weight: bolder;
+}
+h4{
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+	font-size: 1.6em;
+}
+h5{
+	font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+	font-size: 1.4em;
+}
+/* List ------------------------------------------------------------ */
+ul, ol{
+	font-size: 1.2em;
+	margin: 0.5em 0 0 2.0em;
+	padding: 0;
+}
+li{
+	margin: 0 0 0.5em 0;
+}
+ul * ul, ol * ol,
+ul * ol, ol * ul,
+ul * dl, ol * dl,
+ul * p, ol * p{
+	font-size: 1.0em;
+}
+
+dl{
+	font-size: 1.2em;
+}
+dl dt{
+	margin: 1.0em 0 0.3em 0;
+	font-weight: bold;
+}
+dl dd{
+	margin: 0 0.5em;
+}
+dl * dl, dl * ul, dl * ol, dl * p{
+	font-size: 1.0em;
+}
+
+/* Table ------------------------------------------------------------ */
+table{
+	margin: 1.0em 0;
+	font-size: 1.2em;
+}
+table thead tr th{
+	padding: 0.5em 0.5em;
+	white-space: nowrap;
+	text-align: center;
+	font-weight: bold;
+}
+table tbody tr th{
+	padding: 0.5em 0.2em;
+	white-space: nowrap;
+	text-align: center;
+}
+table tbody tr td{
+	padding: 0.5em 0.2em;
+	text-align: center;
+}
+
+/* Form ------------------------------------------------------------- */
+form p{
+	text-indent: 0;
+}
+fieldset ul, fieldset li{
+	border:0;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+fieldset li{
+	clear:both;
+	list-style:none;
+	padding-bottom:10px;
+}
+
+fieldset input{
+	float:left;
+}
+fieldset label{
+	width:140px;
+	float:left;
+}
+input,
+textarea{
+	color: #666666;
+	font-size: 12px;
+	border: 1px solid #efefef;
+	padding: 2px;
+}
+input:focus,
+textarea:focus{
+	border: 1px solid #dedede;
+}
+input[type=submit],
+input[type=reset],
+input[type=button]{
+	background: #eeeeef;
+	padding: 2px 20px;
+	border: 1px solid #ababab;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+input[type=submit]:hover,
+input[type=reset]:hover,
+input[type=button]:hover{
+	background: #ccccff;
+}
+/* Pre ---------------------------------------------------- */
+pre{
+	font-family: "Courier New",Courier,monospace;
+	font-size: 1.2em;
+	background-color: #fefefe;
+	border: solid 1px #dedede;
+	line-height: 120%;
+	margin: 1em 0;
+	padding: 0.5em;
+	overflow-x: auto;
+	overflow-y: auto;
+}
