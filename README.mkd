@@ -14,6 +14,8 @@ Required packages
 + django-codemirror-widget
 + django-markitup-widget
 + django-modify-history
++ django-qwert
++ django-mobilejp
 + django-compressed
 + django-pagination
 + django-reversetag

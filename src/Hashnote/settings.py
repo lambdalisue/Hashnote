@@ -82,6 +82,7 @@ SECRET_KEY = '(e$5ibv8f=8#-%j_a4^snt3^eeh@05k^@&(0&1dc192ai3yq-4'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+    'django_mobilejp.loader.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     'django.template.loaders.eggs.Loader',
@@ -93,6 +94,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
+    "django_mobilejp.context_processors.flavour",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,12 +108,15 @@ MIDDLEWARE_CLASSES = (
     'qwert.middleware.http.Http403Middleware',
     'qwert.middleware.threadlocals.ThreadLocalsMiddleware',
     'qwert.middleware.exception.UserBasedExceptionMiddleware',
+    'django_mobilejp.middleware.MobileDetectionMiddleware',
+    'django_mobilejp.middleware.SetFlavourMiddleware',
     #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'Hashnote.urls'
 
 TEMPLATE_DIRS = (
+    os.path.join(ROOT, 'templates'),
     os.path.join(ROOT, 'templates/default'),
 )
 
@@ -125,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
     # site-package
+    'django_mobilejp',
     'qwert',
     'compress',
     'pagination',
