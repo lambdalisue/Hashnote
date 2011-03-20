@@ -3,6 +3,7 @@
 div.pagination{
 	position: relative;
 	width: 100%;
+	height: 1em;
 	margin: 20px 0;
 	padding: 2px 0;
 	border-top: 1px solid #cacbc7;

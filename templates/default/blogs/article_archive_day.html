@@ -1,0 +1,44 @@
+{% extends "blogs/base.html" %}
+{% load i18n %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'full-blogs-article-list' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+&gt; <a href="{% reverse 'blogs_article_archive_year' day.year %}">{{ day.year }}</a>
+&gt; <a href="{% reverse 'blogs_article_archive_month' day.year,day.month %}">{{ day|date:"M" }}</a>
+&gt; <a href="{% reverse 'blogs_article_archive_day' day.year,day.month,day.day %}">{{ day.day }}</a>
+{% endblock %}
+
+{% block content %}
+<h1>{% blocktrans with day|date as day %}{{ day }}{% endblocktrans %}</h1>
+<span class="subscript">{% blocktrans with day|date as day %}Articles posted at {{ day }}{% endblocktrans %}</span>
+<div class="pagination">
+	{% if previous_day %}
+		{% reverse 'blogs_article_archive_day' year=previous_day.year,month=previous_day.month,day=previous_day.day as previous_url %}
+		<a href="{{ previous_url }}" class="prev">&lsaquo;&lsaquo; {{ previous_day|date }}</a>
+	{% else %}
+		<span class="disabled prev">&lsaquo;&lsaquo; {{ previous_day|date }}</span>
+	{% endif %}
+
+	{% if next_day %}
+		{% reverse 'blogs_article_archive_day' year=next_day.year,month=next_day.month,day=next_day.day as next_url %}
+		<a href="{{ next_url }}" class="next">{{ next_day|date }} &rsaquo;&rsaquo;</a>
+	{% else %}
+		<span class="disabled next">{{ next_day|date }} &rsaquo;&rsaquo;</span>
+	{% endif %}
+</div>
+<section id="articles">
+{% if object_list %}
+	{% autopaginate object_list 10 %}
+	{% for article in object_list %}
+	{% include "blogs/components/article_list_item.html" %}
+	{% endfor %}
+{% else %}
+	<p>{% trans 'No article is posted yet' %}</p>
+{% endif %}
+</section>
+{% paginate %}
+{% endblock %}

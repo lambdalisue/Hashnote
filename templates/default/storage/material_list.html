@@ -12,9 +12,9 @@
 
 {% block content %}
 <h1>{% trans 'Material list' %}</h1>
-<p class="description">
+<span class="subscript">
 	{% trans 'The list of material' %}
-</p>
+</span>
 {% if perms.storage.add_material %}
 <form action="{% reverse 'storage_material_create' %}?next={% reverse 'storage_material_list' %}" method="post" enctype="multipart/form-data" class="short">{% csrf_token %}
 	{{ form.as_p }}

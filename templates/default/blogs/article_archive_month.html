@@ -1,0 +1,43 @@
+{% extends "blogs/base.html" %}
+{% load i18n %}
+
+{% block head %}
+{{ block.super }}
+{% compressed_css 'full-blogs-article-list' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+&gt; <a href="{% reverse 'blogs_article_archive_year' month.year %}">{{ month.year }}</a>
+&gt; <a href="{% reverse 'blogs_article_archive_month' month.year,month.month %}">{{ month|date:"M" }}</a>
+{% endblock %}
+
+{% block content %}
+<h1>{% blocktrans with month|date:"M, Y" as month %}{{ month }}{% endblocktrans %}</h1>
+<span class="subscript">{% blocktrans with month|date:"M, Y" as month %}Articles posted at {{ month }}{% endblocktrans %}</span>
+<div class="pagination">
+	{% if previous_month %}
+		{% reverse 'blogs_article_archive_month' year=previous_month.year,month=previous_month.month as previous_url %}
+		<a href="{{ previous_url }}" class="prev">&lsaquo;&lsaquo; {{ previous_month|date:"M, Y" }}</a>
+	{% else %}
+		<span class="disabled prev">&lsaquo;&lsaquo; {{ previous_month|date:"M, Y" }}</span>
+	{% endif %}
+
+	{% if next_month %}
+		{% reverse 'blogs_article_archive_month' year=next_month.year,month=next_month.month as next_url %}
+		<a href="{{ next_url }}" class="next">{{ next_month|date:"M, Y" }} &rsaquo;&rsaquo;</a>
+	{% else %}
+		<span class="disabled next">{{ next_month|date:"M, Y" }} &rsaquo;&rsaquo;</span>
+	{% endif %}
+</div>
+<section id="articles">
+{% if object_list %}
+	{% autopaginate object_list 10 %}
+	{% for article in object_list %}
+	{% include "blogs/components/article_list_item.html" %}
+	{% endfor %}
+{% else %}
+	<p>{% trans 'No article is posted yet' %}</p>
+{% endif %}
+</section>
+{% paginate %}
+{% endblock %}

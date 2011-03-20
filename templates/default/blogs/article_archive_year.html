@@ -1,0 +1,16 @@
+{% extends "blogs/base.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+&gt; <a href="{% reverse 'blogs_article_archive_year' year %}">{{ year }}</a>
+{% endblock %}
+
+{% block content %}
+<h1>{% blocktrans %}{{ year }}{% endblocktrans %}</h1>
+<span class="subscript">{% blocktrans %}Archives at {{ year }}{% endblocktrans %}</span>
+<ul class="hlist">
+	{% for date in date_list %}
+	<li><a href="{% reverse 'blogs_article_archive_month' year=date.year,month=date.month %}">{{ date|date:"M" }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

@@ -7,33 +7,15 @@
 {% endblock %}
 
 {% block content %}
+<section id="articles">
 {% if object_list %}
-	{% autopaginate object_list 5 %}
+	{% autopaginate object_list 10 %}
 	{% for article in object_list %}
-	<article class="article">
-		<aside>
-			<time datetime="{{ article.publish_at }}">
-				<span class="day">{{ article.publish_at.day }}</span>
-				<span class="month">{{ article.publish_at|date:"M" }}</span>
-				<span class="year">{{ article.publish_at.year }}</span>
-			</time>
-		</aside>
-		<section class="content">
-			<h1><a href="{{ article.get_absolute_url }}">{{ article }}</a></h1>
-			<span class="subscript">{% blocktrans with article.publish_at|date as publish_at %}Posted at {{ publish_at }}{% endblocktrans %}
-			{% if article.category %}
-			<br />{% blocktrans with article.category.get_absolute_url as href and article.category as category %}Categorized as '<a href="{{ href }}">{{ category }}</a>'{% endblocktrans %}
-			{% endif %}
-			</span>
-			<article class="body markdown">
-				{{ article.body|parseall|truncateletters_html:"400" }}
-			</article>
-		</section>
-	</article>
-	{% if not forloop.last %}<hr />{% endif %}
+	{% include "blogs/components/article_list_item.html" %}
 	{% endfor %}
-	{% paginate %}
 {% else %}
 	<p>{% trans 'No article is posted yet' %}</p>
 {% endif %}
+</section>
+{% paginate %}
 {% endblock %}

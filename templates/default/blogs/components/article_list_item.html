@@ -1,0 +1,27 @@
+<article class="article">
+	<aside>
+		<time datetime="{{ article.publish_at }}">
+			<span class="day">
+				<a href="{% reverse 'blogs_article_archive_day' article.publish_at.year,article.publish_at.month,article.publish_at.day %}">
+					{{ article.publish_at.day }}
+				</a>
+			</span>
+			<span class="month">
+				<a href="{% reverse 'blogs_article_archive_month' article.publish_at.year,article.publish_at.month %}">
+					{{ article.publish_at|date:"M" }}
+				</a>
+			</span>
+			<span class="year">
+				<a href="{% reverse 'blogs_article_archive_year' article.publish_at.year %}">
+					{{ article.publish_at.year }}
+				</a>
+			</span>
+		</time>
+	</aside>
+	<section class="content">
+		<h3><a href="{{ article.get_absolute_url }}">{{ article }}</a></h3>
+		<article class="body">
+			<p>{{ article.body|parseall|striptags|truncateletters:"300" }}</p>
+		</article>
+	</section>
+</article>

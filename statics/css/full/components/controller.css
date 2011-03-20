@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-nav#controller ul li#controller-storage a{
-	background: url(/css/image/Media.png) no-repeat;
-}
 nav#controller ul li#controller-top a{
 	background: url(/css/image/Top.png) no-repeat;
 }
