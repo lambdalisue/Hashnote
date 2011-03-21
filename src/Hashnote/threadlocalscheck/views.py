@@ -17,7 +17,7 @@ HTML = u"""
     <h1>threadlocals checker</h1>
     <p>あなたのスレッドIDは<strong>{{ threadlocals_id }}</strong>です。この番号をAlisueに教えてください。</p>
     
-    <p>あなたのIP Addressで{{ exists.count }}個のスレッドIDが保存されています</p>
+    <p>あなたのIP Addressで他に{{ exists.count }}個のスレッドIDが保存されています</p>
     
     {% if conflicts.count > 0 %}
     <p><strong style="color: red;">{{ conflicts.count }}個の衝突が見つかりました！下記情報も含めてAlisueにお知らせください</strong></p>
@@ -69,7 +69,7 @@ def check(request):
         ip_address=ip_address,
     ).save()
     
-    exists = Threadlocals.objects.filter(ip_address=ip_address)
+    exists = Threadlocals.objects.exclude(threadlocals_id=threadlocals_id).filter(ip_address=ip_address)
     conflicts = Threadlocals.objects.exclude(ip_address=ip_address).filter(threadlocals_id=threadlocals_id)
     
     t = Template(HTML)
