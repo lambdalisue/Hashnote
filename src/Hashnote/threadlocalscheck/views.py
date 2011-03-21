@@ -15,7 +15,7 @@ HTML = u"""
 <html><head><meta charset=utf-8><title>threadlocals checker</title></head>
 <body>
     <h1>threadlocals checker</h1>
-    <p>あなたのスレッドIDは<strong>{{ thread_locals.id }}</strong>です。この番号をAlisueに教えてください。</p>
+    <p>あなたのスレッドIDは<strong>{{ threadlocals_id }}</strong>です。この番号をAlisueに教えてください。</p>
     
     <p>あなたのIP Addressで{{ exists.count }}個のスレッドIDが保存されています</p>
     
@@ -37,6 +37,26 @@ HTML = u"""
         threadlocals.request: {{ threadlocals_request }}
         request = {{ request }}
     </pre>
+    {% endif %}
+    
+    {% if user.is_authenticated %}
+    <table>
+        <thead>
+            <tr>
+                <th>threadlocals id</th>
+                <th>IP Address</th>
+                <th>Date</th>
+            </tr>
+        </thread>
+        <tbody>
+        {% for threadlocals in threadlocals_list %}
+        <tr>
+            <td>{{ threadlocals.threadlocals_id }}</td>
+            <td>{{ threadlocals.ip_address }}</td>
+            <td>{{ threadlocals.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     {% endif %}
 </body></html>
 """
@@ -60,6 +80,7 @@ def check(request):
         'thread_locals': threadlocals._thread_locals,
         'threadlocals_request': threadlocals.request(),
         'request': request,
+        'threadlocals_list': Threadlocals.objects.all(),
     })
     response = HttpResponse(t.render(c))
     return response
