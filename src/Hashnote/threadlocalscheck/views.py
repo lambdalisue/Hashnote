@@ -19,6 +19,7 @@ HTML = u"""
     
     <p>あなたのIP Addressで他に{{ exists.count }}個のスレッドIDが保存されています</p>
     
+    {% comment %}
     {% if conflicts.count > 0 %}
     <p><strong style="color: red;">{{ conflicts.count }}個の衝突が見つかりました！下記情報も含めてAlisueにお知らせください</strong></p>
     <ul>
@@ -27,6 +28,7 @@ HTML = u"""
         {% endfor %}
     </ul>
     {% endif %}
+    {% endcomment %}
     
     {% if request != threadlocals_request %}
     <p><strong style="color: red;"><code>threadlocals</code>から取得した<code>request</code>と実際の<code>request</code>が
