@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'Hashnote.globals',
     'Hashnote.blogs',
     'Hashnote.storage',
+    'Hashnote.threadlocalscheck',
 )
 
 FIXTURE_DIRS = (

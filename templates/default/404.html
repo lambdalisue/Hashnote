@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>Page not found</h1>
+<span class="subscript">Error: 404 - Page not found</span>
+{% blocktrans %}
+<code>{{ request.path }}</code> is not found. Please make sure you enter correct url.
+{% endblocktrans %}
+{% endblock %}
