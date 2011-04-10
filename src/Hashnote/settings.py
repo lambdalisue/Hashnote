@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.comments',
+    'django.contrib.markup',
     # site-package
     'qwert',
     'compress',
@@ -143,6 +144,10 @@ INSTALLED_APPS = (
 FIXTURE_DIRS = (
     os.path.join(ROOT, 'fixtures'),
 )
+
+RESTRUCTUREDTEXT_FILTER_SETTINGS = {
+    'doctitle_xform': False,
+}
 
 # django-compress
 #------------------------------------------------------
