@@ -7,10 +7,10 @@
 import sys
 import os.path
 ROOT = os.path.join(os.path.dirname(__file__), '../../')
-PYTHON_PATHS = [
-    os.path.join(ROOT, 'src/libs'),
-]
-sys.path += PYTHON_PATHS
+#PYTHON_PATHS = [
+#    os.path.join(ROOT, 'src/libs'),
+#]
+#sys.path += PYTHON_PATHS
 #------------------------------------------------------------------------------------------
 
 VERSION = '0.0.0.1'
