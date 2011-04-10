@@ -130,7 +130,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django.contrib.comments',
     # site-package
-    'django_mobilejp',
     'qwert',
     'compress',
     'pagination',
