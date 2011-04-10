@@ -108,8 +108,6 @@ MIDDLEWARE_CLASSES = (
     'qwert.middleware.http.Http403Middleware',
     'qwert.middleware.threadlocals.ThreadLocalsMiddleware',
     'qwert.middleware.exception.UserBasedExceptionMiddleware',
-    'django_mobilejp.middleware.MobileDetectionMiddleware',
-    'django_mobilejp.middleware.SetFlavourMiddleware',
     #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
