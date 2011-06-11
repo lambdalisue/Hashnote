@@ -46,12 +46,12 @@ DATABASES = {
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
 #TIME_ZONE = 'America/Chicago'
-TIME_ZONE = 'Tokyo/Japan'
+TIME_ZONE = 'Asia/Tokyo'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 #LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'ja_JP'
+LANGUAGE_CODE = 'ja'
 
 SITE_ID = 1
 
